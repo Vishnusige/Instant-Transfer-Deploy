@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: instant-transfer
+    runtime: node
+    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && npm install"
+    startCommand: "cd backend && node index.js"
+    envVars:
+      - key: MONGO_URI
+        value: "mongodb+srv://vishnu:anythingStrong123@cluster0.r6okm7r.mongodb.net/instanttransfer?retryWrites=true&w=majority&appName=Cluster0"
+      - key: JWT_SECRET
+        value: "mysecretkey123"
+      - key: NODE_ENV
+        value: "production"
